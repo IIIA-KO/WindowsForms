@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A91F737C-F882-4BEE-B3AB-36E2814461E6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TaskManager</RootNamespace>
+    <AssemblyName>TaskManager</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCategoryForm.Designer.cs">
+      <DependentUpon>AddCategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddResourceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddResourceForm.Designer.cs">
+      <DependentUpon>AddResourceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTaskForm.Designer.cs">
+      <DependentUpon>AddTaskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoryForm.Designer.cs">
+      <DependentUpon>CategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\EditRecordEventArgs.cs" />
+    <Compile Include="Common\OpenTaskEventArgs.cs" />
+    <Compile Include="Common\SingleInstanceChecker.cs" />
+    <Compile Include="Common\TaskCategory.cs" />
+    <Compile Include="Common\TaskDurationType.cs" />
+    <Compile Include="Common\TaskFlag.cs" />
+    <Compile Include="Common\JumpListDisplayStyle.cs" />
+    <Compile Include="Common\TaskPriority.cs" />
+    <Compile Include="Common\TaskStatus.cs" />
+    <Compile Include="Common\Utility.cs" />
+    <Compile Include="Common\WindowMessageHelper.cs" />
+    <Compile Include="Controls\GanttChart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\GanttChart.Designer.cs">
+      <DependentUpon>GanttChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GanttViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\GanttViewer.Designer.cs">
+      <DependentUpon>GanttViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TaskViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TaskViewer.Designer.cs">
+      <DependentUpon>TaskViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TextEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TextEditor.Designer.cs">
+      <DependentUpon>TextEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ThumbnailViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ThumbnailViewer.Designer.cs">
+      <DependentUpon>ThumbnailViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database\SqlTaskManager.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlTaskManager.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResourceForm.Designer.cs">
+      <DependentUpon>ResourceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaskManagerMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskManagerMainForm.Designer.cs">
+      <DependentUpon>TaskManagerMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddCategoryForm.resx">
+      <DependentUpon>AddCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddResourceForm.resx">
+      <DependentUpon>AddResourceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTaskForm.resx">
+      <DependentUpon>AddTaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CategoryForm.resx">
+      <DependentUpon>CategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\GanttViewer.resx">
+      <DependentUpon>GanttViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TaskViewer.resx">
+      <DependentUpon>TaskViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TextEditor.resx">
+      <DependentUpon>TextEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ThumbnailViewer.resx">
+      <DependentUpon>ThumbnailViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceForm.resx">
+      <DependentUpon>ResourceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskManagerMainForm.resx">
+      <DependentUpon>TaskManagerMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingForm.resx">
+      <DependentUpon>SettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskForm.resx">
+      <DependentUpon>TaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskGanttChartForm.resx">
+      <DependentUpon>TaskGanttChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingForm.Designer.cs">
+      <DependentUpon>SettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskForm.Designer.cs">
+      <DependentUpon>TaskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaskGanttChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskGanttChartForm.Designer.cs">
+      <DependentUpon>TaskGanttChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Window7\TaskBar.cs" />
+    <Compile Include="Window7\TaskJumpList.cs" />
+    <Compile Include="Window7\TaskThumbnail.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\TaskManager.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\TaskManager_log.ldf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>TaskManager.mdf</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Database\SqlTaskManager.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SqlTaskManager.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Resources\GanttChart.png" />
+    <None Include="Resources\Question_Icon.ico" />
+    <None Include="Resources\Question.ico" />
+    <None Include="Resources\Delete_Icon.ico" />
+    <None Include="Resources\TaskSetting.png" />
+    <None Include="Resources\edit_Icon.ico" />
+    <None Include="Resources\Save.png" />
+    <None Include="Resources\Close.png" />
+    <None Include="Resources\Save.bmp" />
+    <None Include="Resources\Close.bmp" />
+    <None Include="Resources\High_Priority_Icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Low_Priority_Icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Medium_Priority_Icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\NoDate_Flag_Icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\ThisWeek_Flag_Icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Tomorrow_Flag_Icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Today_Flag_Icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\NextWeek_Flag_Icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Medium_Priority.png" />
+    <None Include="Resources\NoDate_Flag.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Tomorrow_Flag.png" />
+    <None Include="Resources\Today_Flag.png" />
+    <None Include="Resources\NextWeek_Flag.png" />
+    <None Include="Resources\ThisWeek_Flag.png" />
+    <None Include="Resources\Forward.ico" />
+    <None Include="Resources\Back.ico" />
+    <None Include="Resources\Red_Category.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Purple_Category.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Orange_Category.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Green_Category.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Blue_Category.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Yellow_Category.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\YellowCat.png" />
+    <None Include="Resources\OrangeCat.png" />
+    <None Include="Resources\PurpleCat.png" />
+    <None Include="Resources\RedCat.png" />
+    <None Include="Resources\GreenCat.png" />
+    <None Include="Resources\BlueCat.png" />
+    <None Include="Resources\Task manager.ico" />
+    <None Include="Resources\Task_Icon.ico" />
+    <None Include="Resources\Category_Icon.ico" />
+    <None Include="Resources\Resource_Icon.ico" />
+    <None Include="Resources\AddCategory.png" />
+    <None Include="Resources\Category.png" />
+    <None Include="Resources\AddTask.png" />
+    <None Include="Resources\Task.png" />
+    <None Include="Resources\AddResource.png" />
+    <None Include="Resources\Resource.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\Empty.png" />
+    <None Include="Resources\Low_Priority.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\High_Priority.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\Add.png" />
+    <None Include="Resources\Delete_01.png" />
+    <None Include="Resources\color.bmp" />
+    <None Include="Resources\bold.bmp" />
+    <None Include="Resources\backcolor.bmp" />
+    <None Include="Resources\uol.bmp" />
+    <None Include="Resources\underscore.bmp" />
+    <None Include="Resources\outdent.bmp" />
+    <None Include="Resources\ol.bmp" />
+    <None Include="Resources\italic.bmp" />
+    <None Include="Resources\indent.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{2E1FB0DF-F9BB-4909-9F32-2D9D022A8E57}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shell\Shell.csproj">
+      <Project>{AA0C00CB-8699-4F37-BFAE-40CA87ACC06D}</Project>
+      <Name>Shell</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
